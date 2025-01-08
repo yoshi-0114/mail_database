@@ -158,15 +158,15 @@ def AI_summary(body):
     # Gemini APIを使って応答を生成
     response = model.generate_content(prompt)
 
-    # 応答をテキストとして取得（ここではresponse.textと仮定）
+    # 応答をテキストとして取得
     assistant_response = response.text
 
     return assistant_response
 
 # メール本文を要約する関数
-def NLP_summary(subject):
+def NLP_summary(body):
     #要約対象のテキストを指定
-    parser = PlaintextParser.from_string(subject, Tokenizer('japanese'))
+    parser = PlaintextParser.from_string(body, Tokenizer('japanese'))
     #アルゴリズムのインスタンス生成
     summarizer =  LexRankSummarizer()
     #要約の実行 sentences_count で何行に要約したいかを指定する
